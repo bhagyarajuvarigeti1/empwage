@@ -31,7 +31,7 @@ do
 	dayspermonth=$((dayspermonth-1))
 	workinghours=$((workinghours-1))
 	wagepermonth=$(($wagepermonth+$wageperday))
-	dext[$i]=$wageperday' : '$wagepermonth
+	dext[$i]=' { '$i':'$wageperday' : '$wagepermonth' } '
 	i=$(($i+1))
 done
 echo "start"
