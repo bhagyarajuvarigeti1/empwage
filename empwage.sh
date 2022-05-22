@@ -7,24 +7,23 @@ absent=0
 wageperhour=20
 fulldayhour=8
 wagepermonth=0
-empstatus=$((RANDOM % 3))
+
 
 echo "Welcome to Emplopyee wage computation "
 for((i=0;i<20;i++))
 do
-	if [ $present -eq $empstatus ]
-	then
+	empstatus=$((RANDOM % 3))
+	case $empstatus in
+	$present)
 		wageperday=$(($fulldayhour*$wageperhour))
-		echo "employee is present"
-	elif [ $absent -eq $empstatus ]
-	then
+		echo "employee is present";;
+	$absent)
 		wageperday=0
-		echo "employee is absent"
-	elif [ $parttime -eq $empstatus ]
-	then
+		echo "employee is absent";;
+	$parttime)
 		wageperday=$(($parttimehour*$wageperhour))
-		echo "employee is parttime"
-	fi
+		echo "employee is parttime";;
+	esac
 	wagepermonth=$(($wagepermonth+$wageperday))
 done
 
