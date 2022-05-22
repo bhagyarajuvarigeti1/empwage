@@ -1,6 +1,7 @@
 #! /bin/bash -x
 
 function empwage(){
+declare -A dext
 parttime=2
 parttimehour=8
 present=1
@@ -10,6 +11,7 @@ wageperhour=20
 fulldayhour=8
 wagepermonth=0
 dayspermonth=20
+i=0
 
 echo "Welcome to Emplopyee wage computation"
 while [ $dayspermonth -gt 0 -a $workinghours -gt 0 ]
@@ -29,8 +31,11 @@ do
 	dayspermonth=$((dayspermonth-1))
 	workinghours=$((workinghours-1))
 	wagepermonth=$(($wagepermonth+$wageperday))
+	dext[$i]=$wageperday' : '$wagepermonth
+	i=$(($i+1))
 done
-
+echo "start"
+echo ${dext[@]}
 echo $wagepermonth
 }
 
