@@ -1,5 +1,6 @@
 #! /bin/bash -x
 
+function empwage(){
 parttime=2
 parttimehour=8
 present=1
@@ -31,3 +32,6 @@ do
 done
 
 echo $wagepermonth
+}
+
+empwage
